@@ -30,16 +30,17 @@ def test_verify(image_path, device_id="test_device"):
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
-        print("Usage: python test.py <path_to_image.jpg> <user_id>")
+        print("Usage: python test.py <enroll_image_path> <verify_image_path> [user_id]")
         sys.exit(1)
         
-    img_path = sys.argv[1]
-    uid = sys.argv[2]
+    enroll_img = sys.argv[1]
+    verify_img = sys.argv[2]
+    uid = sys.argv[3] if len(sys.argv) > 3 else "test_user_123"
     
     # 1. Enroll the face
-    print(f"Enrolling face from {img_path} for user {uid}...")
-    test_enroll(img_path, uid)
+    print(f"Enrolling face from {enroll_img} for user {uid}...")
+    test_enroll(enroll_img, uid)
     
     # 2. Verify the face
-    print(f"\nVerifying face from {img_path}...")
-    test_verify(img_path)
+    print(f"\nVerifying face from {verify_img}...")
+    test_verify(verify_img)
