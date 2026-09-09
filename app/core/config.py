@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     PINECONE_API_KEY: str = os.getenv("PINECONE_API_KEY", "")
     PINECONE_ENV: str = os.getenv("PINECONE_ENV", "us-east-1")
     PINECONE_INDEX_NAME: str = os.getenv("PINECONE_INDEX_NAME", "monoscrum-faces")
+    NGROK_AUTHTOKEN: str = os.getenv("NGROK_AUTHTOKEN", "")
 
     class Config:
         case_sensitive = True
