@@ -1,4 +1,4 @@
-﻿# Use official Python slim image
+# Use official Python slim image
 FROM python:3.11-slim
 
 # Install system dependencies needed for dlib + face_recognition + OpenCV
@@ -27,8 +27,8 @@ RUN pip install --no-cache-dir --upgrade pip && \
 # Copy application code
 COPY . .
 
-# Expose port 7860 (Hugging Face Spaces default port)
-EXPOSE 7860
+# Expose port (Render sets PORT env variable, default 10000)
+EXPOSE 10000
 
-# Start the FastAPI app
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "7860"]
+# Start the FastAPI app using Render's PORT env variable
+CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT:-10000}"]

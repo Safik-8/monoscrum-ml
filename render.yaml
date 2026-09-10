@@ -1,0 +1,13 @@
+﻿services:
+  - type: web
+    name: monoscrum-face-api
+    env: docker
+    region: singapore
+    plan: free
+    envVars:
+      - key: PINECONE_API_KEY
+        sync: false
+      - key: PINECONE_ENV
+        value: us-east-1
+      - key: PINECONE_INDEX_NAME
+        value: monoscrum-faces
