@@ -34,7 +34,7 @@ def main():
         # Open a ngrok tunnel to the server
         public_url = ngrok.connect(PORT).public_url
         print(f"\n=================================================")
-        print(f"🚀 Ngrok Tunnel Established: {public_url}")
+        print(f"Ngrok Tunnel Established: {public_url}")
         print(f"=================================================\n")
         
         # Update the mono-scrum-api .env file
@@ -52,9 +52,9 @@ def main():
             with open(API_ENV_PATH, "w", encoding="utf-8") as f:
                 f.write(content)
             
-            print(f"✅ Updated {API_ENV_PATH} with FACE_API_URL={public_url}")
+            print(f"Updated {API_ENV_PATH} with FACE_API_URL={public_url}")
         else:
-            print(f"❌ Could not find {API_ENV_PATH}")
+            print(f"Could not find {API_ENV_PATH}")
             
         print("\nPress Ctrl+C to stop the server and ngrok tunnel.")
         
