@@ -33,7 +33,7 @@ class PineconeService:
             ]
         )
 
-    def verify_face(self, embedding: list[float], threshold: float = 0.90):
+    def verify_face(self, embedding: list[float], threshold: float = 0.96):
         if not self.index:
             print("Mock verify: returning unknown")
             return None, 0.0
